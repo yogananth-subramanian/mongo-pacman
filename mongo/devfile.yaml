@@ -1,8 +1,6 @@
 schemaVersion: 2.2.0
 metadata:
-  name: mongodb
-  projectType: container
-  language: container
+  name: mongodb 
   attributes:
     alpha.dockerimage-port: 27017
   version: 1.0.0
