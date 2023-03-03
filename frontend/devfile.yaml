@@ -11,7 +11,7 @@ components:
       imageName: pacman
       dockerfile:
         uri:  docker/Dockerfile
-        buildContext:  frontend
+        buildContext:  .
         rootRequired: false 
 commands:
   - id: build-image
