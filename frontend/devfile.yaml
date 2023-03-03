@@ -10,7 +10,7 @@ components:
     image:
       imageName: pacman
       dockerfile:
-        uri:  docker/Dockerfile
+        uri:  frontend/docker/Dockerfile
         buildContext:  pacman-frontend
         rootRequired: false 
 commands:

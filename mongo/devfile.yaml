@@ -10,7 +10,7 @@ components:
     image:
       imageName: mongoserver
       dockerfile:
-        uri:   docker/Dockerfile 
+        uri:   mongo/docker/Dockerfile 
         buildContext: mongo
         rootRequired: false 
 commands:
