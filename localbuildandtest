@@ -1,0 +1,26 @@
+
+DIR=$(pwd)
+IMG=$(basename $DIR) 
+ 
+TAG=$(date +"%Y-%m-%d-%H%M%S")
+
+cd pacman-frontend 
+PACMAN="quay.io/$MY_QUAY_USER/pacman:$TAG"
+docker build -f Dockerfile -t $PACMAN .
+docker push $PACMAN
+cd ..
+
+
+cd mongo
+MONGOSERVER="quay.io/$MY_QUAY_USER/mongoserver:$TAG"
+docker build -f Dockerfile  -t $MONGOSERVER .
+docker push $MONGOSERVER
+cd ..
+ 
+yq -i '.spec.template.spec.containers[0].image="'$PACMAN'"'  deploy/pacman-deployment.yaml  
+yq -i '.spec.template.spec.containers[0].image="'$MONGOSERVER'"'  deploy/mongo-deployment.yaml  
+ 
+
+oc new-project mongo-test
+oc delete -f deploy
+oc apply -f deploy

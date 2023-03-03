@@ -1,0 +1,14 @@
+
+new Mongo ("pacman")
+
+db.createUser({
+        user: "pacman",
+        pwd: "pacman",
+        roles: [
+            { role: "readWrite", db: "pacman"}
+        ]
+    })
+
+show users 
+
+exit 
