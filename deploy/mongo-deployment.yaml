@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mongodb
-  namespace: mongo-test
+  namespace: jduimovich-tenant
 spec:
   replicas: 1
   selector:
@@ -14,14 +14,8 @@ spec:
         app.kubernetes.io/instance: mongodb
     spec:
       containers:
-        - image: quay.io/jduimovich0/mongoserver:2023-03-03-160124
+        - image: quay.io/jduimovich0/mongoserver:2023-03-03-183137
           imagePullPolicy: Always
-          livenessProbe:
-            httpGet:
-              path: /
-              port: 27017
-            initialDelaySeconds: 10
-            periodSeconds: 10
           name: container-image
           ports:
             - containerPort: 27017

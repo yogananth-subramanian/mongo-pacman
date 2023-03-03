@@ -21,6 +21,6 @@ yq -i '.spec.template.spec.containers[0].image="'$PACMAN'"'  deploy/pacman-deplo
 yq -i '.spec.template.spec.containers[0].image="'$MONGOSERVER'"'  deploy/mongo-deployment.yaml  
  
 
-oc new-project mongo-test
+oc new-project jduimovich-tenant
 oc delete -f deploy
 oc apply -f deploy

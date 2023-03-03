@@ -2,7 +2,7 @@ apiVersion: route.openshift.io/v1
 kind: Route
 metadata: 
   name: pacman
-  namespace: mongo-test
+  namespace: jduimovich-tenant
 spec:
   port:
     targetPort: 8080

@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: pacman
-  namespace: mongo-test
+  namespace: jduimovich-tenant
 spec:
   replicas: 1
   selector:
@@ -14,7 +14,7 @@ spec:
         app.kubernetes.io/instance: pacman
     spec:
       containers:
-        - image: quay.io/jduimovich0/pacman:2023-03-03-160124
+        - image: quay.io/jduimovich0/pacman:2023-03-03-183137
           imagePullPolicy: Always
           livenessProbe:
             httpGet:
