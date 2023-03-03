@@ -6,7 +6,7 @@ RUN dnf -y  module install nodejs:18/common
 
 RUN dnf -y install npm jq  && dnf clean all && npm install mongodb    
  
-COPY pacman /pacman  
+COPY . /pacman  
 RUN chmod -R 777  /pacman
 RUN npm install 
  

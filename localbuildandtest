@@ -4,16 +4,16 @@ IMG=$(basename $DIR)
  
 TAG=$(date +"%Y-%m-%d-%H%M%S")
 
-cd pacman-frontend 
+cd  frontend 
 PACMAN="quay.io/$MY_QUAY_USER/pacman:$TAG"
-docker build -f Dockerfile.pacman -t $PACMAN .
+docker build -f Dockerfile -t $PACMAN .
 docker push $PACMAN
 cd ..
 
 
 cd mongo
 MONGOSERVER="quay.io/$MY_QUAY_USER/mongoserver:$TAG"
-docker build -f Dockerfile.mongo  -t $MONGOSERVER .
+docker build -f Dockerfile  -t $MONGOSERVER .
 docker push $MONGOSERVER
 cd ..
  
