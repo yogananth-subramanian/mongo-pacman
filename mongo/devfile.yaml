@@ -12,8 +12,8 @@ components:
     image:
       imageName: mongoserver
       dockerfile:
-        uri: Dockerfile
-        buildContext: ./mongo
+        uri:   Dockerfile
+        buildContext: mongo
         rootRequired: false 
 commands:
   - id: build-image
