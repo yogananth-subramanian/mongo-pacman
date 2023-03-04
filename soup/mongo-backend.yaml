@@ -7,7 +7,7 @@ metadata:
 spec:
   componentName: mongodb
   application: mongo-pacman-two-container
-  containerImage: quay.io/jduimovich0/mongoserver:2023-03-04-123157
+  containerImage: quay.io/jduimovich0/mongoserver:2023-03-04-165623
   targetPort: 27017
   replicas: 1
   resources:

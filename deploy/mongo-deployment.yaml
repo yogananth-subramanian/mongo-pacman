@@ -14,7 +14,7 @@ spec:
         app.kubernetes.io/instance: mongodb
     spec:
       containers:
-        - image: quay.io/jduimovich0/mongoserver:2023-03-04-123157
+        - image: quay.io/jduimovich0/mongoserver:2023-03-04-165623
           imagePullPolicy: Always
           name: container-image
           ports:
