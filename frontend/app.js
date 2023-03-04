@@ -52,8 +52,7 @@ Database.connect(app, function(err) {
         console.log('PACMAN: Failed to connect to database server');
     } else {
         console.log('PACMAN: Connected to database server successfully');
-    }
-
+    } 
 });
 
 module.exports = app;

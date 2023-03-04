@@ -2,12 +2,10 @@
 
 var MongoClient = require('mongodb').MongoClient;
 var config = require('./config');
-var _db;
+var _db = null;
 
-function Database() {
-
-    this.connect = function(app, callback) {
-
+function Database() { 
+    this.connect = function(app, callback) { 
             console.log ("CONNECTING ", config.database.url)
             console.log ("Options ", config.database.options)
             MongoClient.connect(config.database.url,
@@ -17,6 +15,7 @@ function Database() {
                                         console.log(err);
                                         console.log(config.database.url);
                                         console.log(config.database.options);
+                                        _db = null
                                     } else {
                                         console.log ("SUCCESS!!!! ", config.database.url)
                                         const db = client.db(config.database.dbName); 
@@ -30,17 +29,21 @@ function Database() {
     }
 
     this.getDb = function(app, callback) {
+        console.log('getDb: ', _db);
         if (!_db) {
+            console.log('getDb: Attempting Reconnect !');
             this.connect(app, function(err) {
                 if (err) {
-                    console.log('Failed to connect to database server');
+                    console.log('getDb: Failed to connect to database server');
                 } else {
-                    console.log('Connected to database server successfully');
+                    console.log('getDb: Connected to database server successfully');
                 }
 
                 callback(err, _db);
             });
         } else {
+            console.log('getDb: DB appears connected !');
+            console.log('getDb: ', _db);
             callback(null, _db);
         }
 

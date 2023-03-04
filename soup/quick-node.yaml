@@ -1,0 +1,21 @@
+apiVersion: appstudio.redhat.com/v1alpha1
+kind: Component
+metadata:
+  name: hack-node
+  annotations:
+    skip-initial-checks: "true"
+spec:
+  componentName: hack-node
+  application: mongo-pacman-two-container
+  containerImage: quay.io/jduimovich0/quick-node 
+  targetPort: 8080
+  replicas: 1
+  resources:
+    requests:
+      cpu: 10m
+      memory: 50Mi
+  source:
+    git:
+      url: https://github.com/jduimovich/quick-node 
+
+ 
