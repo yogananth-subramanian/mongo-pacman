@@ -363,8 +363,8 @@ function getK8sCloudMetadata(callback) {
         headers: headers,
     };
 
-    var cloudName = 'unknown',
-        zone = 'unknown';
+    var cloudName = 'Kubernetes',
+        zone = 'Cluster';
 
     var req = https.request(genericOptions, (zoneRes) => {
         let error;
