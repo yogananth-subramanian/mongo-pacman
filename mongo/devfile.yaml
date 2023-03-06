@@ -16,9 +16,6 @@ components:
   - name: kubernetes-deploy
     attributes:
       deployment/replicas: 1
-      deployment/containerENV:
-      - name: MONGO_SERVICE_HOST
-        value: "" 
       deployment/cpuLimit: '100m'
       deployment/cpuRequest: 10m
       deployment/memoryLimit: 512Mi
