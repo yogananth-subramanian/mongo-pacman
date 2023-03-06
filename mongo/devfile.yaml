@@ -18,8 +18,8 @@ components:
       deployment/replicas: 1
       deployment/cpuLimit: '100m'
       deployment/cpuRequest: 10m
-      deployment/memoryLimit: 100Mi
-      deployment/memoryRequest: 50Mi
+      deployment/memoryLimit: 512Mi
+      deployment/memoryRequest: 512Mi
       deployment/container-port: 27017
     kubernetes:
       uri: deploy.yaml

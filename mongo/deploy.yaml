@@ -1,20 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mongodb
-  namespace: jduimovich-tenant
+  name: mongodb-unused 
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app.kubernetes.io/instance: mongodb
+      app.kubernetes.io/instance:  mongodb-unused
   template:
     metadata:
       labels:
-        app.kubernetes.io/instance: mongodb
+        app.kubernetes.io/instance:  mongodb-unused
     spec:
       containers:
-        - image: quay.io/jduimovich0/mongoserver:2023-03-04-123157
+        - image: quay.io/jduimovich0/ mongodb-unused
           imagePullPolicy: Always
           name: container-image
           ports:
@@ -22,17 +21,4 @@ spec:
           resources:
             requests:
               cpu: 10m
-              memory: 50Mi
----
-apiVersion: v1
-kind: Service
-metadata:  
-  name: mongodb
-  namespace: jduimovich-tenant
-spec:
-  ports:
-  - port: 27017
-    targetPort: 27017 
-  selector:
-    app.kubernetes.io/instance: mongodb
- 
+              memory: 512Mi
