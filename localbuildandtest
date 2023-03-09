@@ -23,9 +23,9 @@ oc new-project jduimovich-tenant
 oc delete -f deploy
 oc apply -f deploy
 
-yq -i '.spec.containerImage="'$PACMAN'"'  soup/pacman-frontend.yaml
-yq -i '.spec.containerImage="'$MONGOSERVER'"'  soup/mongo-backend.yaml
-oc project user1-tenant
-oc delete -f soup
-oc apply -f soup
+# yq -i '.spec.containerImage="'$PACMAN'"'  soup/pacman-frontend.yaml
+# yq -i '.spec.containerImage="'$MONGOSERVER'"'  soup/mongo-backend.yaml
+# oc project user1-tenant
+# oc delete -f soup
+# oc apply -f soup
  
