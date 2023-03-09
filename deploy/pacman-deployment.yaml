@@ -14,7 +14,7 @@ spec:
         app.kubernetes.io/instance: pacman
     spec:
       containers:
-        - image: quay.io/jduimovich0/pacman:2023-03-04-165623
+        - image: quay.io/jduimovich0/pacman:2023-03-09-082829
           imagePullPolicy: Always
           livenessProbe:
             httpGet:

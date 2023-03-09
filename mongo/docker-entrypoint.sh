@@ -21,12 +21,10 @@ if [ -z "$(ls -A ${MONGO_DATA_DIR}/journal)" ]; then
 	echo "Waiting for mongo to start " 
 	sleep 30 
 	echo "=> Creating pacman database ..."
-	mongosh < /mongodb/scripts/initmongo
-	mongosh < /mongodb/scripts/showmongo    
-	echo "-----------------------------------------------------------" 
-	echo "running wait"
+	mongosh < /mongodb/scripts/initmongo 
+	echo "=> Waiting ..." 
 	wait 
-	echo "wait completed is mongo running " 
+	echo "Mongo Terminated, attempting to restart." 
 	REP=10
 	while true
 	do    
