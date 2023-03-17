@@ -15,6 +15,6 @@ This is a two container application.
    environment variable `MONGO_SERVICE_HOST` to match the name of the stone soup environment 
 3. Press create-application and wait for the build to complete.
 
-Note, there will be two routes generated, use the pacman one to access the app.
+Note, there will be two routes generated, use the pacman one to access the app. Use the frontend route. 
 
 
