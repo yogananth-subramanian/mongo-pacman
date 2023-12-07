@@ -22,3 +22,12 @@ spec:
             requests:
               cpu: 10m
               memory: 50Mi
+        - image: quay.io/redhat-user-workloads-stage/ysubrama-tenant/mongo-pacman/mongodb@sha256:656b38905313877ff8d1df694a0f4a6a66f77fd94a3ec128fc608dc3ddba5129
+          imagePullPolicy: Always
+          name: mongo-image
+          ports:
+            - containerPort: 27017
+          resources:
+            requests:
+              cpu: 10m
+              memory: 512Mi              
