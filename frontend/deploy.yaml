@@ -13,9 +13,9 @@ spec:
         app.kubernetes.io/instance: pacman-unused
     spec:
       containers:
-        - image: quay.io/jduimovich0/pacman-unused
+        - image: pacman
           imagePullPolicy: Always
-          name: container-image
+          name: front-end
           ports:
             - containerPort: 8080
           resources:
