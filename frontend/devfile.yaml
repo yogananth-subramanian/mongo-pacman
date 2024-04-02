@@ -25,11 +25,14 @@ components:
       deployment/memoryRequest: 50Mi
       deployment/container-port: 8080
     kubernetes:
-      uri: deploy.yaml
+      uri: pacman-deployment.yaml
       endpoints:
       - name: frontend-port
         targetPort: 8080
         path: /
+  - name: mongo-db
+    kubernetes:
+      uri: mongo-deployment.yaml        
 commands:
   - id: build-image
     apply:
@@ -37,11 +40,15 @@ commands:
   - id: deployk8s
     apply:
       component: kubernetes-deploy
+  - id: mongo-service
+    apply:
+      component: mongo-db      
   - id: deploy
     composite:
       commands:
         - build-image
         - deployk8s
+        - mongo-service
       group:
         kind: deploy
         isDefault: true
