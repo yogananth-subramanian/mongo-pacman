@@ -22,3 +22,15 @@ spec:
             requests:
               cpu: 10m
               memory: 50Mi
+---
+apiVersion: v1
+data:
+  POSTGRESQL_DATABASE: rhtrex
+  POSTGRESQL_PASSWORD: foobar-bizz-buzz
+  POSTGRESQL_USER: trex
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  labels:
+    io.kompose.service: pg-rh-trex--env
+  name: pg-rh-trex--env            
