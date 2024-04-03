@@ -50,4 +50,4 @@ metadata:
   creationTimestamp: null
   labels:
     io.kompose.service: trex
-  name: trex-cm0
+  name: pacman-cfg
