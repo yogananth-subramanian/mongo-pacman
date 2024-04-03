@@ -62,7 +62,7 @@ components:
                       memory: 512Mi
   - name: config-deploy
     kubernetes:
-      uri: test-config.yaml
+      uri: mongo-deployment.yaml
 commands:
   - id: build-image
     apply:
