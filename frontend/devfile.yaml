@@ -1,4 +1,4 @@
-schemaVersion: 2.2.0
+schemaVersion: 2.2.1
 metadata:
   name: pacman 
   attributes:
@@ -37,7 +37,7 @@ components:
       deployment/cpuRequest: 10m
       deployment/memoryLimit: 100Mi
       deployment/memoryRequest: 50Mi
-      deployment/container-port: 27017  
+      deployment/container-port: 27017
     kubernetes:
       uri: mongo-deployment.yaml
       endpoints:
