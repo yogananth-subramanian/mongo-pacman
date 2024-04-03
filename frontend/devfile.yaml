@@ -62,29 +62,7 @@ components:
                       memory: 512Mi
   - name: config-deploy
     kubernetes:
-      inlined: |                     
-        apiVersion: v1
-        data:
-          db.host: |
-            trex-db
-          db.name: |
-            rhtrex
-          db.password: |
-            foobar-bizz-buzz
-          db.port: "5432"
-          db.user: |
-            trex
-          ocm-service.clientId: ocm-ams-testing
-          ocm-service.clientSecret: your-client-secret-here
-          ocm-service.token: your-ocm-api-token-here
-          sentry.key: |
-            your-key-here-for-dev-or-mounted-by-volume-in-a-deployment
-        kind: ConfigMap
-        metadata:
-          creationTimestamp: null
-          labels:
-            io.kompose.service: trex
-          name: pacman-cfg        
+      uri: test-config.yaml
 commands:
   - id: build-image
     apply:
