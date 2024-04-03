@@ -60,7 +60,9 @@ components:
                     requests:
                       cpu: 10m
                       memory: 512Mi
-        ---
+  - name: config-deploy
+    kubernetes:
+      inlined: |                     
         apiVersion: v1
         data:
           db.host: |
@@ -89,12 +91,16 @@ commands:
       component: outerloop-build
   - id: deployk8s
     apply:
-      component: kubernetes-deploy   
+      component: kubernetes-deploy
+  - id: deployconfig
+    apply:
+      component: config-deploy   
   - id: deploy
     composite:
       commands:
         - build-image
         - deployk8s
+        - deployconfig
       group:
         kind: deploy
         isDefault: true
