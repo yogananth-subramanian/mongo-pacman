@@ -30,31 +30,18 @@ components:
       - name: frontend-port
         targetPort: 8080
         path: / 
-  - name: mongo-deploy
-    attributes:
-      deployment/replicas: 1
-      deployment/container-port: 27017
-    kubernetes:
-      uri: mongo-deployment.yaml
-      endpoints:
-      - name: mongo-port
-        targetPort: 27017
 commands:
   - id: build-image
     apply:
       component: outerloop-build
   - id: deployk8s
     apply:
-      component: kubernetes-deploy
-  - id: deploymongo
-    apply:
-      component: mongo-deploy      
+      component: kubernetes-deploy   
   - id: deploy
     composite:
       commands:
         - build-image
         - deployk8s
-        - deploymongo
       group:
         kind: deploy
         isDefault: true
