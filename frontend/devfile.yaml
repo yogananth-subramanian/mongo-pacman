@@ -29,7 +29,61 @@ components:
       endpoints:
       - name: frontend-port
         targetPort: 8080
-        path: / 
+        path: /
+      inlined: |
+        apiVersion: apps/v1
+        kind: Deployment
+        metadata:
+          name: pacman
+        spec:
+          replicas: 1
+          selector:
+            matchLabels:
+              app.kubernetes.io/instance: pacman
+          template:
+            metadata:
+              labels:
+                app.kubernetes.io/instance: pacman
+            spec:
+              containers:
+                - image: quay.io/jduimovich0/pacman:2023-03-09-082829
+                  imagePullPolicy: Always
+                  livenessProbe:
+                    httpGet:
+                      path: /
+                      port: 8080
+                    initialDelaySeconds: 10
+                    periodSeconds: 10
+                  name: pacman-image
+                  ports:
+                    - containerPort: 8080
+                  resources:
+                    requests:
+                      cpu: 10m
+                      memory: 512Mi
+        ---
+        apiVersion: v1
+        data:
+          db.host: |
+            trex-db
+          db.name: |
+            rhtrex
+          db.password: |
+            foobar-bizz-buzz
+          db.port: "5432"
+          db.user: |
+            trex
+          ocm-service.clientId: ocm-ams-testing
+          ocm-service.clientSecret: your-client-secret-here
+          ocm-service.token: your-ocm-api-token-here
+          sentry.key: |
+            your-key-here-for-dev-or-mounted-by-volume-in-a-deployment
+        kind: ConfigMap
+        metadata:
+          creationTimestamp: null
+          labels:
+            io.kompose.service: trex
+          name: pacman-cfg        
 commands:
   - id: build-image
     apply:
