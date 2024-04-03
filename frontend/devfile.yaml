@@ -25,7 +25,6 @@ components:
       deployment/memoryRequest: 50Mi
       deployment/container-port: 8080
     kubernetes:
-      uri: pacman-deployment.yaml
       endpoints:
       - name: frontend-port
         targetPort: 8080
