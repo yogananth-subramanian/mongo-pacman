@@ -31,6 +31,9 @@ components:
         targetPort: 8080
         path: / 
   - name: mongo-deploy
+    attributes:
+      deployment/replicas: 1
+      deployment/container-port: 27017
     kubernetes:
       uri: mongo-deployment.yaml
       endpoints:
