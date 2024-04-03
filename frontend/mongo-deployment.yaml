@@ -32,5 +32,5 @@ kind: ConfigMap
 metadata:
   creationTimestamp: null
   labels:
-    io.kompose.service: pg-rh-trex--env
-  name: pg-rh-trex--env            
+    io.kompose.service: mong-svc
+  name: mongo-cfg        
